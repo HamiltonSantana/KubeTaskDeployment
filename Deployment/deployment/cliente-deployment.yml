@@ -1,0 +1,35 @@
+# Source: deployment/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  cliente-app
+  namespace: default
+  labels:
+    app:  cliente-app
+spec:
+  selector:
+    matchLabels:
+      app: cliente-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  cliente-app
+    spec:
+      containers:
+      - name:  cliente-app
+        image:  cliente-app:latest
+        imagePullPolicy: Never
+          #readinessProbe:
+          #  httpGet:
+          #    path: /_status/healthz
+          #    port: 80
+          #  initialDelaySeconds: 5
+          #  timeoutSeconds: 2
+          #  successThreshold: 1
+          #  failureThreshold: 3
+          #  periodSeconds: 10
+        ports:
+        - containerPort: 8080
+          name:  http
+      restartPolicy: Always

@@ -1,0 +1,24 @@
+services:
+  cliente-svc:
+    image: mcr.microsoft.com/dotnet/aspnet:latest
+    container_name: cliente-service
+    volumes:
+      - "./ClienteService/src/ClienteService/bin/Debug/net8.0:/cliente-app"
+    working_dir: /cliente-app
+    ports:
+      - "8080:8080"
+    command: dotnet ClienteService.dll
+
+  veiculo-svc:
+    image: mcr.microsoft.com/dotnet/aspnet:latest
+    container_name: veiculo-service
+    volumes:
+      - "./VeiculoService/src/VeiculoService/bin/Debug/net8.0:/veiculo-app"
+    working_dir: /veiculo-app
+    ports:
+      - "8081:8081"
+    command: dotnet VeiculoService.dll
+
+volumes:
+  cliente-app:
+  veiculo-app:

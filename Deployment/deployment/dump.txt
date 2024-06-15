@@ -1,0 +1,222 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2024-05-09T04:18:01Z"
+  generateName: veiculo-app-66f6f75dfb-
+  labels:
+    app: veiculo-app
+    pod-template-hash: 66f6f75dfb
+  name: veiculo-app-66f6f75dfb-lc56z
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: veiculo-app-66f6f75dfb
+    uid: 76707f46-1ee8-4e31-9f3f-9bf5df611730
+  resourceVersion: "88033"
+  uid: 13c3a862-3962-45e4-aafd-b7f29e90d44c
+spec:
+  containers:
+  - image: veiculo-app:latest
+    imagePullPolicy: Never
+    name: veiculo-app
+    ports:
+    - containerPort: 8080
+      name: veiculo-app
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-gr87l
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-gr87l
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:01Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:02Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:02Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:01Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://a9184419d8d3248a07ef0e04b893ccb68840d3d1868b25464e3c1089f7b3d7da
+    image: veiculo-app:latest
+    imageID: docker://sha256:7352e2f4c129705e8d96a81a850ef9807e5444685b9840085a93881ca627316a
+    lastState: {}
+    name: veiculo-app
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2024-05-09T04:18:02Z"
+  hostIP: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.62
+  podIPs:
+  - ip: 10.244.0.62
+  qosClass: BestEffort
+  startTime: "2024-05-09T04:18:01Z"
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2024-05-09T04:18:01Z"
+  generateName: cliente-app-78857f6ff9-
+  labels:
+    app: cliente-app
+    pod-template-hash: 78857f6ff9
+  name: cliente-app-78857f6ff9-c7tdk
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: cliente-app-78857f6ff9
+    uid: 823efe89-878d-49d3-9b74-2d31a73b248d
+  resourceVersion: "88038"
+  uid: 969ed959-5346-404f-a5b7-dfb9cf1d8f0f
+spec:
+  containers:
+  - image: cliente-app:latest
+    imagePullPolicy: Never
+    name: cliente-app
+    ports:
+    - containerPort: 8081
+      name: cliente-app
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-tvh8q
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-tvh8q
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:01Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:02Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:02Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2024-05-09T04:18:01Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://6db45d1be83d71a7079d87ca92e5984772ab555f9bc0fec69e5d27ce6aa7c3cd
+    image: cliente-app:latest
+    imageID: docker://sha256:608cba45f81c35f60ec42ef6fd8e59d3a455706960e4b6c9adb3a2b085b4feb9
+    lastState: {}
+    name: cliente-app
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2024-05-09T04:18:02Z"
+  hostIP: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.61
+  podIPs:
+  - ip: 10.244.0.61
+  qosClass: BestEffort
+  startTime: "2024-05-09T04:18:01Z"

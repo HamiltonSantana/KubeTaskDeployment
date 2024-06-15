@@ -1,0 +1,29 @@
+{{ $portName := .Values.portName }}
+{{- range $key, $value := .Values.applications }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  {{ $value.name}}
+  namespace: default
+  labels:
+    app:  {{ $value.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $value.name }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  {{ $value.name }}
+    spec:
+      containers:
+      - name:  {{ $value.name }}
+        image:  {{ $value.image }}:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort:  {{ $value.port }}
+          name:  {{ $key }}
+      restartPolicy: Always
+---
+{{- end}}
